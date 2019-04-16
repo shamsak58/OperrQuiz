@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="java">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/0bf26be6-6486-4d2a-b7f5-528539af9ebc/src/main/java" />
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/0bf26be6-6486-4d2a-b7f5-528539af9ebc/src/test/java" />
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/83611ea2-de35-4e82-9276-d25bafa9afc6/src/main/java" />
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/83611ea2-de35-4e82-9276-d25bafa9afc6/src/test/java" />
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/9cbaa284-7f8c-4ef2-b48e-fc3ee73a11eb/src/main/java" />
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/9cbaa284-7f8c-4ef2-b48e-fc3ee73a11eb/src/test/java" />
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/bef7dbe2-90ea-415e-89e1-c1ba7318a455/app" />
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/bef7dbe2-90ea-415e-89e1-c1ba7318a455/test" />
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/c5a1b88d-40e8-470b-92ff-c4f1fdfa91e5/app" />
+      <root url="file://C:/JetBrains/typesafe-activator-1.3.12/activator-dist-1.3.12/templates/c5a1b88d-40e8-470b-92ff-c4f1fdfa91e5/test" />
+    </SOURCES>
+  </library>
+</component>
