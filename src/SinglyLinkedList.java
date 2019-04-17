@@ -95,7 +95,7 @@ public class SinglyLinkedList {
         Node currNode = list.head;
 
         if (currNode == null) {
-            System.out.println("\nLinkedList is empty removeAll Passed");
+            System.out.println("\nLinkedList is empty ");
             return;
         }
         // Traverse through the LinkedList
