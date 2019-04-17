@@ -1,122 +1,139 @@
 
-class Node_T<T>  {
+public class SinglyLinkedList {
 
-    private T value;
-    private Node_T<T> nextRef;
+    Node head = null; // head of list
 
-    public T getValue() {
-        return value;
-    }
-    public void setValue(T value) {
-        this.value = value;
-    }
-    public Node_T<T> getNextRef() {
-        return nextRef;
-    }
-    public void setNextRef(Node_T<T> ref) {
-        this.nextRef = ref;
-    }
+    // Linked list Node.
+    // This inner class is made static
+    // so that main() can access it
+    class Node {
 
-}
+        int data;
+        Node prev,next;
 
-
-
-public class SinglyLinkedList<T> {
-
-    private Node_T<T> head;
-    private Node_T<T> tail;
-
-    public void append(T element) throws Exception{
-
-        if  (element == null) {
-            System.out.println("Nothing to append ...");
-            throw new Exception("Error append(T element)  failed nothing to append ");
-        }
-        Node_T<T> nd = new Node_T<T>();
-        nd.setValue(element);
-        System.out.println("Adding: "+element);
-        /**
-         * check if the list is empty
-         */
-        if(head == null){
-            //since there is only one element, both head and
-            //tail points to the same object.
-            head = nd;
-            tail = nd;
-        } else {
-            //set current tail next link to new Node_T
-            tail.setNextRef(nd);
-            //set tail as newly created Node_T
-            tail = nd;
+        // Constructor
+        Node(int d) {
+            data = d;
+            next = null;
         }
     }
 
+    // Method to append a new node
+    public  SinglyLinkedList append(SinglyLinkedList list, int data)  {
 
 
-    public void removeAll() throws Exception   {
+        // Create a new node with given data
+        Node new_node = new Node(data);
+        new_node.next = null;
+        // If the Linked List is empty,
+        // then make the new node as head
+        if (list.head == null) {
+            list.head = new_node;
+        }
+        else {
+            // Else traverse till the last node
+            // and append the new_node there
+            Node last = list.head;
+            while (last.next != null) {
+                last = last.next;
+            }
+            // append the new_node at last node
+            last.next = new_node;
+        }
+        // Return the list by head
+        return list;
+    }
+
+
+    public  SinglyLinkedList removeTail(SinglyLinkedList list) throws Exception	{
 
         if	(head == null) {
             System.out.println("Nothing to remove ...");
             throw new Exception("Error removeAll failed nothing to remove ");
         }
-        Node_T<T> backup = null;
-        while (head != null) {
-            backup = head.getNextRef();
-            head = null;
-            head = backup;
+        // If the Linked List is empty,
+        // then make the new node as head
+        if (list.head == null || head.next == null) {
+            System.out.println("Linked List is empty no tail to remove");
+            return list;
         }
-        tail = null;
+        Node node = head;
+        while (node.next.next != null) {
+            node = node.next;
+        }
+        node.next = null;
+        return list;
     }
 
-    public void removeTail() throws Exception {
+    public  SinglyLinkedList removeGreater(SinglyLinkedList list, int val) throws Exception {
 
         if	(head == null) {
             System.out.println("Nothing to remove ...");
-            throw new Exception("Error removetail - failed nothing to remove ");
+            throw new Exception("Error removeAll failed nothing to remove ");
         }
-        Node_T<T> node = head;
-        while (node.getNextRef().getNextRef() != null) {
-            node = node.getNextRef();
+        // If the Linked List is empty,
+        // then make the new node as head
+        if (list.head == null || head.next == null) {
+            System.out.println("Linked List is empty no tail to remove");
+            return list;
         }
-        tail = node;
-        node.setNextRef(null);
+        Node p = head;
+        while (p.next != null) {
+            if (p.next.data > val) {
+                Node np = p.next;
+                p.next = np.next;
+            } else {
+                p = p.next;
+            }
+        }
 
+        return list;
     }
 
+    // Method to print the LinkedList.
+    public  void printList(SinglyLinkedList list) {
+        Node currNode = list.head;
 
-
-    public void traverse()  {
-
-        if (head == null && tail == null) {
-            System.out.println("SinglyLinkedList Empty");
+        if (currNode == null) {
+            System.out.println("\nLinkedList is empty removeAll Passed");
             return;
         }
-        Node_T<T> tmp = head;
-        while(true){
-            if(tmp == null){
-                break;
-            }
-            System.out.println(tmp.getValue());
-            tmp = tmp.getNextRef();
+        // Traverse through the LinkedList
+        System.out.print("LinkedList: ");
+        while (currNode != null) {
+            // Print the data at current node
+            System.out.print(currNode.data + " ");
+            // Go to next node
+            currNode = currNode.next;
         }
     }
 
-    public static void main(String a[]) throws Exception{
-        SinglyLinkedList<Integer> quiz1 = new SinglyLinkedList<Integer>();
-        quiz1.append(13);
-        quiz1.append(132);
-        quiz1.append(333);
-        quiz1.append(222);
-        quiz1.append(99);
-        quiz1.traverse();
-        System.out.println("Test Remove Tail");
-        quiz1.removeTail();
-        quiz1.traverse();
-        System.out.println("Test Remove All");
-        quiz1.removeAll();
-        quiz1.traverse();
-
+    // Driver code
+    public static void main(String[] args) throws Exception {
+        /* Start with the empty list. */
+        int gtTest = 5;
+        SinglyLinkedList list = new SinglyLinkedList();
+        //
+        // ******append test******
+        //
+        // append the values
+        list.append(list, 0);
+        list.append(list, 1);
+        list.append(list, 20);
+        list.append(list, 3);
+        list.append(list, 4);
+        list.append(list, 5);
+        list.append(list, 6);
+        list.append(list, 71);
+        list.append(list, 99);
+        System.out.println("Append test "); // Print the LinkedList
+        list.printList(list);
+        System.out.println("\n  removeTail test ");
+        list.removeTail(list);
+        list.printList(list);
+        System.out.println("\n  removeGreater test value : "+gtTest);
+        list.removeGreater(list, gtTest);
+        list.printList(list);
 
     }
 }
-
